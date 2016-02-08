@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% set active_page = "project_detail" %}
+
+{% block subtile %} 
+  {{ project.project_name }}
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="text-center"> {{ project.project_name }}</h1>
+			<div class="text-center"> by {{ project.creator.first_name }} {{ project.creator.last_name }}</div>
+		</div>
+	</div>
+
+	<div class="col-xs-12" style="height:30px;"> </div>
+
+	<div class="row">
+		<div class="col-sm-8">
+			<div class=
+
+{% endblock %}
