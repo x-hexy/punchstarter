@@ -67,4 +67,27 @@ def project_detail(project_id):
 
 	return render_template("project_detail.html", project=project)
 
+@app.route("/search/")
+def search():
+	query = request.args.get("q") or ""
+	projects = db.session.query(Project).filter(
+		Project.name.ilike("%"+query+"%") |
+		Project.short_description.ilike("%"+query+"%") |
+		Project.long_description.ilike("%"+query+"%")
+	).all()
+
+	project_count = len(projects)
+
+	return render_template('search.html',
+		query_text=query,
+		projects=projects,
+		project_count=project_count
+	)
+
+
+
+
+
+
+
 
